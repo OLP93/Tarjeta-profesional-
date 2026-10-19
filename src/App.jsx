@@ -43,7 +43,7 @@ export default function App() {
         {t.skip}
       </a>
 
-      <header className="hero">
+      <header className="site-bar">
         <div className="container">
           <div className="topbar">
             <span className="brand">{NAME}</span>
@@ -74,19 +74,23 @@ export default function App() {
             <a href="#como-trabajo">{t.nav.how}</a>
             <a href="#contacto">{t.nav.contact}</a>
           </nav>
-
-          <div className="hero-body">
-            <p className="eyebrow">{t.hero.role}</p>
-            <h1>{NAME}</h1>
-            <p className="hero-line">{t.hero.line}</p>
-            <a className="button" href="#contacto">
-              {t.hero.cta}
-            </a>
-          </div>
         </div>
       </header>
 
       <main id="contenido">
+        <section className="hero" aria-labelledby="t-hero">
+          <div className="container">
+            <div className="hero-body">
+              <p className="eyebrow">{t.hero.role}</p>
+              <h1 id="t-hero">{NAME}</h1>
+              <p className="hero-line">{t.hero.line}</p>
+              <a className="button" href="#contacto">
+                {t.hero.cta}
+              </a>
+            </div>
+          </div>
+        </section>
+
         <section id="sobre-mi" className="section" aria-labelledby="t-about">
           <div className="container narrow">
             <h2 id="t-about">{t.about.title}</h2>
@@ -118,7 +122,7 @@ export default function App() {
                   <li key={item.id} className="card project">
                     <h3>{item.title}</h3>
                     <p>{item.text}</p>
-                    <ul className="tags" aria-hidden="false">
+                    <ul className="tags">
                       {item.tags.map((tag) => (
                         <li key={tag}>{tag}</li>
                       ))}

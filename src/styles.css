@@ -20,7 +20,8 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 1rem;
+  /* Espacio para que la barra fija no tape los títulos al saltar a una sección */
+  scroll-padding-top: 6.5rem;
 }
 
 body {
@@ -76,7 +77,8 @@ a {
   border-radius: 4px;
 }
 
-.hero :focus-visible {
+.hero :focus-visible,
+.site-bar :focus-visible {
   outline-color: var(--terracotta-light);
 }
 
@@ -88,7 +90,7 @@ a {
   color: var(--petrol);
   padding: 0.6rem 1rem;
   border-radius: 6px;
-  z-index: 10;
+  z-index: 30;
 }
 
 .skip-link:focus {
@@ -106,18 +108,21 @@ a {
   max-width: 44rem;
 }
 
-/* Portada */
-.hero {
-  background: linear-gradient(160deg, var(--petrol) 0%, var(--petrol-soft) 100%);
+/* Barra superior fija */
+.site-bar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--petrol);
   color: var(--cream);
-  padding-bottom: 4.5rem;
+  box-shadow: 0 2px 12px rgba(20, 38, 52, 0.28);
 }
 
 .topbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 1.25rem;
+  padding-top: 0.6rem;
 }
 
 .brand {
@@ -156,7 +161,7 @@ a {
   display: flex;
   gap: 1.25rem;
   overflow-x: auto;
-  padding: 1rem 0 0.25rem;
+  padding: 0.1rem 0 0.5rem;
   scrollbar-width: none;
 }
 
@@ -168,6 +173,7 @@ a {
   color: var(--cream);
   text-decoration: none;
   font-size: 0.9rem;
+  line-height: 1.4;
   white-space: nowrap;
   padding: 0.4rem 0;
   border-bottom: 1px solid transparent;
@@ -177,6 +183,13 @@ a {
 .nav a:hover {
   opacity: 1;
   border-bottom-color: var(--terracotta-light);
+}
+
+/* Portada */
+.hero {
+  background: linear-gradient(160deg, var(--petrol) 0%, var(--petrol-soft) 100%);
+  color: var(--cream);
+  padding-bottom: 4.5rem;
 }
 
 .hero-body {
@@ -353,6 +366,7 @@ a {
 
 .contact-list a {
   font-weight: 500;
+  overflow-wrap: anywhere;
 }
 
 .marker {
@@ -369,8 +383,41 @@ a {
 
 /* Pantallas grandes */
 @media (min-width: 48rem) {
+  html {
+    scroll-padding-top: 4.75rem;
+  }
+
   .container {
     padding: 0 2rem;
+  }
+
+  /* Barra en una sola fila: nombre, menú e idioma */
+  .site-bar .container {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+  }
+
+  .topbar {
+    display: contents;
+  }
+
+  .brand {
+    order: 1;
+  }
+
+  .nav {
+    order: 2;
+    margin-left: auto;
+    padding: 0;
+    overflow: visible;
+    gap: 1.75rem;
+  }
+
+  .lang {
+    order: 3;
   }
 
   .section {
@@ -384,10 +431,6 @@ a {
   .steps {
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
-  }
-
-  .nav {
-    gap: 1.75rem;
   }
 }
 
