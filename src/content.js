@@ -4,11 +4,10 @@
 export const NAME = 'Oiane L.'
 
 // Datos de contacto. Cada entrada tiene el texto que se muestra (`value`) y su enlace (`href`).
-// Mientras `href` esté vacío, se muestra el texto sin enlace (marcador).
-// Ejemplo de href: 'https://github.com/usuario'.
+// Si `href` está vacío, se muestra el texto sin enlace (marcador).
 export const CONTACT = {
   email: { value: 'oianelarra@gmail.com', href: 'mailto:oianelarra@gmail.com' },
-  github: { value: '[usuario de GitHub]', href: '' },
+  github: { value: 'github.com/OLP93', href: 'https://github.com/OLP93' },
 }
 
 // Enlaces al código de cada proyecto. Mientras estén vacíos, la tarjeta no muestra el botón.
