@@ -15,6 +15,7 @@ export const PROJECT_LINKS = {
   contest: '',
   waitlist: '',
   returns: '',
+  menu: '',
 }
 
 export const CONTENT = {
@@ -85,6 +86,12 @@ export const CONTENT = {
           title: 'Control de devoluciones a proveedores',
           text: 'Aplicación para registrar y dar seguimiento a las devoluciones de mercancía a proveedores.',
           tags: ['Aplicación de gestión', 'Seguimiento'],
+        },
+        {
+          id: 'menu',
+          title: 'Carta digital con reservas',
+          text: 'Carta digital para un local de restauración, con opción de reservar mesa desde la propia página.',
+          tags: ['Carta digital', 'Reservas'],
         },
       ],
     },
@@ -179,6 +186,12 @@ export const CONTENT = {
           title: 'Supplier returns tracking',
           text: 'An app to record and follow up on merchandise returns to suppliers.',
           tags: ['Management app', 'Tracking'],
+        },
+        {
+          id: 'menu',
+          title: 'Digital menu with bookings',
+          text: 'A digital menu for a food and drink venue, with the option to book a table from the page itself.',
+          tags: ['Digital menu', 'Bookings'],
         },
       ],
     },
