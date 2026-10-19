@@ -299,6 +299,25 @@ a {
   padding: 0.2rem 0.65rem;
 }
 
+/* Tecnologías de cada proyecto */
+.card p.tech-label {
+  margin-top: 0.5rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.tags.tech {
+  margin-top: 0;
+}
+
+.tags.tech li {
+  background: transparent;
+  border: 1px solid var(--line);
+}
+
 .text-link {
   margin-top: 0.8rem;
   font-weight: 600;
@@ -307,6 +326,19 @@ a {
 
 .text-link:hover {
   text-decoration: underline;
+}
+
+/* Botones de cada proyecto: ver el proyecto publicado y ver el repositorio */
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.5rem;
+  margin-top: auto;
+  padding-top: 0.9rem;
+}
+
+.project-links .text-link {
+  margin-top: 0;
 }
 
 /* Cómo trabajo */

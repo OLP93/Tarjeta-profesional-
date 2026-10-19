@@ -15,7 +15,7 @@ Publicada en Vercel: https://tarjeta-profesional.vercel.app
 ```
 index.html        Página base (título, descripción, tipografías)
 public/           Icono de la página
-src/content.js    Todos los textos (ES/EN), contacto y enlaces de proyectos
+src/content.js    Todos los textos (ES/EN), contacto, enlaces y tecnologías de los proyectos
 src/App.jsx       Estructura de la página, barra fija y selector de idioma
 src/styles.css    Colores, tipografía y diseño responsive
 ```
@@ -26,7 +26,8 @@ Todo el contenido está en `src/content.js`:
 
 - **Textos:** dentro de `CONTENT.es` y `CONTENT.en`. Mantén ambos idiomas con la misma estructura.
 - **Contacto:** objeto `CONTACT`. Cada entrada tiene `value` (texto visible) y `href` (enlace). Si `href` está vacío, se muestra solo el texto.
-- **Enlaces de proyectos:** objeto `PROJECT_LINKS`. Mientras un enlace esté vacío, la tarjeta del proyecto no muestra el botón "Ver el código".
+- **Enlaces de proyectos:** objeto `PROJECT_LINKS`. Cada proyecto tiene `project` (el proyecto publicado, botón "Ver proyecto") y `repo` (su repositorio en GitHub, botón "Ver repositorio"). Si un enlace está vacío, ese botón no se muestra.
+- **Tecnologías de proyectos:** objeto `PROJECT_TECH`. Lista de tecnologías por proyecto, igual en los dos idiomas.
 - **Colores:** variables al inicio de `src/styles.css`.
 
 ## Cómo ampliar la tarjeta
@@ -46,23 +47,34 @@ En `src/content.js`, añade un bloque a la lista `what.items` de **los dos idiom
 
 ### Añadir un proyecto nuevo (sección "Proyectos")
 
-1. En `PROJECT_LINKS`, añade una clave nueva con un identificador sencillo, por ejemplo `reservas: ''`.
-2. En `projects.items` de **los dos idiomas**, añade un bloque con ese mismo `id`:
+1. En `PROJECT_LINKS`, añade una clave nueva con un identificador sencillo y sus dos enlaces (déjalos vacíos si todavía no existen):
 
-```js
-{
-  id: 'reservas',
-  title: 'Nombre del proyecto',
-  text: 'Qué hace y para quién, en una o dos frases.',
-  tags: ['Etiqueta 1', 'Etiqueta 2'],
-},
-```
+   ```js
+   reservas: { project: '', repo: '' },
+   ```
 
-3. Cuando el proyecto esté terminado y revisado, pon su enlace de código en `PROJECT_LINKS` (por ejemplo, `reservas: 'https://github.com/usuario/repositorio'`). Hasta entonces la tarjeta no muestra botón.
+2. En `PROJECT_TECH`, añade la misma clave con sus tecnologías:
+
+   ```js
+   reservas: ['React', 'TypeScript'],
+   ```
+
+3. En `projects.items` de **los dos idiomas**, añade un bloque con ese mismo `id`:
+
+   ```js
+   {
+     id: 'reservas',
+     title: 'Nombre del proyecto',
+     text: 'Qué hace y para quién, en una o dos frases.',
+     tags: ['Etiqueta 1', 'Etiqueta 2'],
+   },
+   ```
+
+4. Cuando el proyecto esté terminado, publicado y revisado, rellena sus enlaces en `PROJECT_LINKS`. Hasta entonces la tarjeta no muestra botones.
 
 ### Quitar o reordenar
 
-Borra el bloque correspondiente de los dos idiomas. El orden en pantalla es el orden de la lista.
+Borra el bloque correspondiente de los dos idiomas (y su entrada en `PROJECT_LINKS` y `PROJECT_TECH` si es un proyecto). El orden en pantalla es el orden de la lista.
 
 ### Cómo publicar los cambios
 
@@ -96,7 +108,7 @@ El repositorio está conectado a Vercel. Cada cambio que se sube a la rama `main
 
 - No tiene backend ni base de datos: es una página estática.
 - El único dato que se guarda es el idioma elegido, en el navegador de cada visitante (localStorage). No se recogen datos personales.
-- No hay formulario de contacto: el contacto es un enlace de correo (`mailto:`) y un enlace al perfil de GitHub.
+- No hay formulario de contacto ni correo visible: el contacto es el enlace al perfil de GitHub.
 - El plan Hobby de Vercel está pensado para uso personal y no comercial, lo que encaja con una tarjeta de presentación personal.
 - La dirección pública es `tarjeta-profesional.vercel.app`. Las demás direcciones del proyecto en Vercel (por ejemplo, las que incluyen el nombre del equipo) están protegidas con inicio de sesión y no deben compartirse.
 
@@ -115,5 +127,6 @@ Hasta que haga falta, es mejor mantener la página sin backend: es más simple, 
 - Barra superior fija con el nombre, el menú de secciones y el selector de idioma, en móvil, tableta y ordenador.
 - Enlace para saltar al contenido, navegación con etiquetas y foco visible.
 - El selector de idioma indica cuál está activo y cambia el idioma declarado de la página.
+- Los enlaces de cada proyecto indican a qué proyecto pertenecen para los lectores de pantalla.
 - Diseño responsive pensado primero para móvil; respeta la preferencia de menos movimiento del dispositivo.
 - Colores con contraste suficiente entre texto y fondo.

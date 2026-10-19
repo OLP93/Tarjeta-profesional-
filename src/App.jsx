@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { CONTENT, CONTACT, NAME, PROJECT_LINKS } from './content.js'
+import { CONTENT, CONTACT, NAME, PROJECT_LINKS, PROJECT_TECH } from './content.js'
 
 const STORAGE_KEY = 'tarjeta-idioma'
 
@@ -32,10 +32,7 @@ export default function App() {
     }
   }, [lang, t])
 
-  const contactItems = [
-    { key: 'email', ...CONTACT.email },
-    { key: 'github', ...CONTACT.github },
-  ]
+  const contactItems = [{ key: 'github', ...CONTACT.github }]
 
   return (
     <>
@@ -117,7 +114,8 @@ export default function App() {
             <h2 id="t-projects">{t.projects.title}</h2>
             <ul className="grid projects">
               {t.projects.items.map((item) => {
-                const href = PROJECT_LINKS[item.id]
+                const links = PROJECT_LINKS[item.id] || {}
+                const tech = PROJECT_TECH[item.id] || []
                 return (
                   <li key={item.id} className="card project">
                     <h3>{item.title}</h3>
@@ -127,16 +125,41 @@ export default function App() {
                         <li key={tag}>{tag}</li>
                       ))}
                     </ul>
-                    {href ? (
-                      <a
-                        className="text-link"
-                        href={href}
-                        {...(isExternal(href)
-                          ? { target: '_blank', rel: 'noopener noreferrer' }
-                          : {})}
-                      >
-                        {t.projects.linkLabel} →
-                      </a>
+                    {tech.length > 0 ? (
+                      <>
+                        <p className="tech-label">{t.projects.techLabel}</p>
+                        <ul className="tags tech">
+                          {tech.map((name) => (
+                            <li key={name}>{name}</li>
+                          ))}
+                        </ul>
+                      </>
+                    ) : null}
+                    {links.project || links.repo ? (
+                      <div className="project-links">
+                        {links.project ? (
+                          <a
+                            className="text-link"
+                            href={links.project}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={`${t.projects.projectLabel}: ${item.title}`}
+                          >
+                            {t.projects.projectLabel} →
+                          </a>
+                        ) : null}
+                        {links.repo ? (
+                          <a
+                            className="text-link"
+                            href={links.repo}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={`${t.projects.repoLabel}: ${item.title}`}
+                          >
+                            {t.projects.repoLabel} →
+                          </a>
+                        ) : null}
+                      </div>
                     ) : null}
                   </li>
                 )

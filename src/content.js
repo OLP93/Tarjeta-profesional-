@@ -6,16 +6,39 @@ export const NAME = 'Oiane L.'
 // Datos de contacto. Cada entrada tiene el texto que se muestra (`value`) y su enlace (`href`).
 // Si `href` está vacío, se muestra el texto sin enlace (marcador).
 export const CONTACT = {
-  email: { value: 'oianelarra@gmail.com', href: 'mailto:oianelarra@gmail.com' },
   github: { value: 'github.com/OLP93', href: 'https://github.com/OLP93' },
 }
 
-// Enlaces al código de cada proyecto. Mientras estén vacíos, la tarjeta no muestra el botón.
+// Enlaces de cada proyecto: `project` (el proyecto publicado) y `repo` (su repositorio en GitHub).
+// Si un enlace está vacío, la tarjeta no muestra ese botón.
 export const PROJECT_LINKS = {
-  contest: '',
-  waitlist: '',
-  returns: '',
-  menu: '',
+  contest: {
+    project: 'https://concurso-salon.lovable.app',
+    repo: 'https://github.com/OLP93/Landin-concurso-salon',
+  },
+  returns: {
+    project: 'https://control-devol-ferre.lovable.app',
+    repo: 'https://github.com/OLP93/control-devol-ferre',
+  },
+  menu: {
+    project: 'https://cafeteria-esquina-32.lovable.app',
+    repo: 'https://github.com/OLP93/Cafeteria-Esquina-32',
+  },
+}
+
+// Tecnologías de cada proyecto (iguales en los dos idiomas).
+export const PROJECT_TECH = {
+  contest: [
+    'React',
+    'TypeScript',
+    'TanStack Start',
+    'Tailwind CSS',
+    'shadcn/ui',
+    'react-hook-form',
+    'zod',
+  ],
+  returns: ['React', 'TypeScript', 'TanStack Start', 'Tailwind CSS', 'zod', 'Vitest'],
+  menu: ['React', 'TypeScript', 'TanStack Router', 'Tailwind CSS'],
 }
 
 export const CONTENT = {
@@ -38,7 +61,7 @@ export const CONTENT = {
     },
     about: {
       title: 'Sobre mí',
-      text: 'Creo webs y aplicaciones de gestión con un enfoque claro: entender lo que se necesita, acordar el alcance y cumplir lo prometido. Vengo del ámbito sanitario, donde aprendí a priorizar, resolver problemas bajo presión y cuidar cada detalle. Hoy aplico esa disciplina al desarrollo web, y aprendo rápido.',
+      text: 'Vengo del ámbito sanitario, un entorno de alta responsabilidad donde resolver problemas con calma, seguir protocolos y cumplir plazos no es opcional. Ahora aplico esa forma de trabajar al desarrollo de software: soy ordenada, comunico con claridad y cumplo lo acordado, entregando lo que se pide y en fecha. Estoy en plena curva de aprendizaje y aprendo rápido; mis proyectos y mi GitHub muestran cómo trabajo. Busco proyectos en los que aportar valor y seguir creciendo.',
     },
     what: {
       title: 'Qué hago',
@@ -67,19 +90,15 @@ export const CONTENT = {
     },
     projects: {
       title: 'Proyectos',
-      linkLabel: 'Ver el código',
+      projectLabel: 'Ver proyecto',
+      repoLabel: 'Ver repositorio',
+      techLabel: 'Tecnologías',
       items: [
         {
           id: 'contest',
           title: 'Landing de concurso',
           text: 'Inscripción con doble validación y panel para gestionar el sorteo.',
           tags: ['Landing', 'Panel de gestión', 'Validación'],
-        },
-        {
-          id: 'waitlist',
-          title: 'Lista de espera con referidos',
-          text: 'Registro con confirmación por correo, posición en la lista según los invitados confirmados y panel de gestión.',
-          tags: ['Registro', 'Referidos', 'Panel de gestión'],
         },
         {
           id: 'returns',
@@ -103,8 +122,8 @@ export const CONTENT = {
           text: 'Escucho lo que se necesita y lo dejo claro por escrito.',
         },
         {
-          title: 'Acordar y construir',
-          text: 'Defino el alcance y construyo por fases, con tu aprobación en cada una.',
+          title: 'Acordar alcance y fecha',
+          text: 'Defino qué se entrega, cómo se comprueba y cuándo, y construyo por fases con tu aprobación en cada una.',
         },
         {
           title: 'Verificar y entregar',
@@ -114,8 +133,8 @@ export const CONTENT = {
     },
     contact: {
       title: 'Contacto',
-      text: 'Si tienes un proyecto en mente, escríbeme y lo hablamos.',
-      labels: { email: 'Correo', github: 'GitHub' },
+      text: 'Puedes ver mi código y mis proyectos en GitHub.',
+      labels: { github: 'GitHub' },
     },
     footer: 'Todos los derechos reservados.',
   },
@@ -138,7 +157,7 @@ export const CONTENT = {
     },
     about: {
       title: 'About me',
-      text: "I build websites and management apps with a clear approach: understand what's needed, agree on scope, and deliver what I promise. I come from the healthcare field, where I learned to prioritize, solve problems under pressure and care for every detail. Today I bring that discipline to web development, and I learn fast.",
+      text: "I come from the healthcare field, a high-responsibility environment where solving problems calmly, following protocols and meeting deadlines isn't optional. Now I apply that same approach to software development: I'm organized, communicate clearly and deliver what was agreed, on time. I'm on a steep learning curve and learn fast; my projects and my GitHub show how I work. I'm looking for projects where I can add value and keep growing.",
     },
     what: {
       title: 'What I do',
@@ -167,19 +186,15 @@ export const CONTENT = {
     },
     projects: {
       title: 'Projects',
-      linkLabel: 'View the code',
+      projectLabel: 'View project',
+      repoLabel: 'View repository',
+      techLabel: 'Technologies',
       items: [
         {
           id: 'contest',
           title: 'Contest landing page',
           text: 'Entry form with double validation and a dashboard to manage the prize draw.',
           tags: ['Landing page', 'Dashboard', 'Validation'],
-        },
-        {
-          id: 'waitlist',
-          title: 'Waitlist with referrals',
-          text: 'Sign-up with email confirmation, list position based on confirmed invitees, and a management dashboard.',
-          tags: ['Sign-up', 'Referrals', 'Dashboard'],
         },
         {
           id: 'returns',
@@ -203,8 +218,8 @@ export const CONTENT = {
           text: 'I listen to what is needed and put it clearly in writing.',
         },
         {
-          title: 'Agree and build',
-          text: 'I define the scope and build in phases, with your approval at each one.',
+          title: 'Agree scope and date',
+          text: 'I define what is delivered, how it is checked and when, and build in phases, with your approval at each one.',
         },
         {
           title: 'Verify and deliver',
@@ -214,8 +229,8 @@ export const CONTENT = {
     },
     contact: {
       title: 'Contact',
-      text: 'If you have a project in mind, get in touch and we will talk it through.',
-      labels: { email: 'Email', github: 'GitHub' },
+      text: 'You can see my code and projects on GitHub.',
+      labels: { github: 'GitHub' },
     },
     footer: 'All rights reserved.',
   },
