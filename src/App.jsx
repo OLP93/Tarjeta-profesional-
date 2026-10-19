@@ -35,7 +35,6 @@ export default function App() {
   const contactItems = [
     { key: 'email', ...CONTACT.email },
     { key: 'github', ...CONTACT.github },
-    { key: 'linkedin', ...CONTACT.linkedin },
   ]
 
   return (

@@ -3,13 +3,12 @@
 
 export const NAME = 'Oiane L.'
 
-// Datos de contacto: sustituye cada marcador por el dato real y añade el enlace en `href`.
-// Ejemplos de href: 'mailto:tu-correo@dominio.com', 'https://github.com/usuario'.
-// Mientras `href` esté vacío, se muestra el marcador como texto sin enlace.
+// Datos de contacto. Cada entrada tiene el texto que se muestra (`value`) y su enlace (`href`).
+// Mientras `href` esté vacío, se muestra el texto sin enlace (marcador).
+// Ejemplo de href: 'https://github.com/usuario'.
 export const CONTACT = {
-  email: { value: '[correo]', href: '' },
+  email: { value: 'oianelarra@gmail.com', href: 'mailto:oianelarra@gmail.com' },
   github: { value: '[usuario de GitHub]', href: '' },
-  linkedin: { value: '[LinkedIn]', href: '' },
 }
 
 // Enlaces al código de cada proyecto. Mientras estén vacíos, la tarjeta no muestra el botón.
@@ -110,7 +109,7 @@ export const CONTENT = {
     contact: {
       title: 'Contacto',
       text: 'Si tienes un proyecto en mente, escríbeme y lo hablamos.',
-      labels: { email: 'Correo', github: 'GitHub', linkedin: 'LinkedIn' },
+      labels: { email: 'Correo', github: 'GitHub' },
     },
     footer: 'Todos los derechos reservados.',
   },
@@ -120,7 +119,7 @@ export const CONTENT = {
     langLabel: 'Language',
     navLabel: 'Sections',
     nav: {
-      about: 'About',
+      about: 'About me',
       what: 'What I do',
       projects: 'Projects',
       how: 'How I work',
@@ -132,7 +131,7 @@ export const CONTENT = {
       cta: 'Contact',
     },
     about: {
-      title: 'About',
+      title: 'About me',
       text: "I build websites and management apps with a clear approach: understand what's needed, agree on scope, and deliver what I promise. I come from the healthcare field, where I learned to prioritize, solve problems under pressure and care for every detail. Today I bring that discipline to web development, and I learn fast.",
     },
     what: {
@@ -204,7 +203,7 @@ export const CONTENT = {
     contact: {
       title: 'Contact',
       text: 'If you have a project in mind, get in touch and we will talk it through.',
-      labels: { email: 'Email', github: 'GitHub', linkedin: 'LinkedIn' },
+      labels: { email: 'Email', github: 'GitHub' },
     },
     footer: 'All rights reserved.',
   },
